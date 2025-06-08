@@ -4,21 +4,24 @@ from Body import Planet, Sun
 
 pygame.init()
 
-WIDTH, HEIGHT = 600, 600
+WIDTH, HEIGHT = 650, 650
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Planet Simulation")
 
 WHITE = (255, 255, 255)
 YELLOW = (255, 255, 0)
+BLUE = (80, 120, 255)
 
 
 def main():
     run = True
     clock = pygame.time.Clock()
 
-    sun = Sun(0, 0, 23, YELLOW, 1.98892 * 10 ** 30)
+    sun = Sun(0, 0, 23, YELLOW, 1.98892 * 10**30)
 
-    planets = []
+    earth = Planet(-1 * Planet.AU, 0, 12, BLUE, 5.9742 * 10**24)
+
+    planets = [earth]
 
     while run:
         clock.tick(60)
