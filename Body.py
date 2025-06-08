@@ -21,6 +21,16 @@ class Body:
     def draw(self, window, height, width):
         x = int(self.x * self.SCALE + width // 2)
         y = int(self.y * self.SCALE + height // 2)
+
+        if len(self.orbit) > 2:
+            updated_points = []
+            for point in self.orbit:
+                x, y = point
+                x = x * self.SCALE + width / 2
+                y = y * self.SCALE + height / 2
+                updated_points.append((x, y))
+            pygame.draw.lines(window, self.colour, False, updated_points, 2)
+
         pygame.draw.circle(window, self.colour, (x, y), self.radius)
 
     def attraction(self, other):
@@ -52,9 +62,8 @@ class Body:
         self.y += self.v_y * self.TIMESTEP
         self.orbit.append((self.x, self.y))
 
-        if len(self.orbit) > 500:
+        if len(self.orbit) > 700:
             self.orbit.pop(0)
-        print(f"{self.__class__.__name__}: x={self.x}, y={self.y}")
 
 
 class Planet(Body):
