@@ -12,6 +12,7 @@ BLUE = (60, 100, 255)
 RED = (245, 49, 60)
 DARK_GREY = (80, 78, 81)
 CREAM = (255, 253, 208)
+FONT = pygame.font.SysFont("comicsans", 16)
 
 
 def main():
@@ -45,7 +46,7 @@ def main():
         for body in bodies:
             if not isinstance(body, Sun):
                 body.update_position(bodies)
-            body.draw(WINDOW, HEIGHT, WIDTH)
+            body.draw(WINDOW, HEIGHT, WIDTH, FONT)
         pygame.display.update()
 
     pygame.quit()
