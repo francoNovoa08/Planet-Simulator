@@ -1,6 +1,6 @@
 import pygame
 import math
-import Planet
+from Body import Planet, Sun
 
 pygame.init()
 
