@@ -1,5 +1,4 @@
 import pygame
-import math
 from Body import Planet, Sun
 
 pygame.init()
@@ -25,7 +24,7 @@ def main():
     mercury = Planet(0.387 * Planet.AU, 0,  6, DARK_GREY, 0.330 * 10**24)
     venus = Planet(0.723 * Planet.AU, 0, 11, CREAM, 4.8685 * 10**24)
 
-    planets = [mercury, venus, earth, mars]
+    bodies = [sun, mercury, venus, earth, mars]
 
     while run:
         clock.tick(60)
@@ -34,9 +33,8 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
-        sun.draw(WINDOW, HEIGHT, WIDTH)
-        for planet in planets:
-            planet.draw(WINDOW, HEIGHT, WIDTH)
+        for body in bodies:
+            body.draw(WINDOW, HEIGHT, WIDTH)
         pygame.display.update()
 
     pygame.quit()
