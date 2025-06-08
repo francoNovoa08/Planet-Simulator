@@ -4,7 +4,7 @@ import pygame
 class Body:
     AU = 149597870.7
     G = 6.67428e-11
-    SCALE = 250 / AU
+    SCALE = 200 / AU
     TIMESTEP = 3600 * 24
 
     def __init__(self, x, y, radius, colour, mass):
